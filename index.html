@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lavmap</title>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="js/all.js">
+</head>
+<body>
+    
+    <!-- MapboxGeocoder -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
+
+    <div id='map'></div>
+
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoieHRyZXJpYyIsImEiOiJjamswb3FsbmswOTJsM2txa2xsZ21vNGlrIn0.KBmaidVRM3miFMAZrIfBOA'
+
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        center: [23.7548053,62.5590779], // starting position
+        zoom: 2, // starting zoom
+        style: 'mapbox://styles/xtreric/cjqjt61ulo1m32rny3pjtmzgq'
+    });
+
+    // Add searchbar to the map.
+    map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken
+    }));
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // Add fullscreen controls to the map.
+    map.addControl(new mapboxgl.FullscreenControl());
+
+    // Add geolocate control to the map.
+    map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    }));
+
+
+
+    </script>    
+
+</body>
+</html>
