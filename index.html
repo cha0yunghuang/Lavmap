@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="js/all.js">
 </head>
 <body>
-    
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <!-- MapboxGeocoder -->
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
@@ -39,17 +42,11 @@
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
 
+    // Disable double-click zoomin 
+    map.doubleClickZoom.disable();
+
     // Add fullscreen controls to the map.
     map.addControl(new mapboxgl.FullscreenControl());
-
-    // Add geolocate control to the map.
-    // map.addControl(new mapboxgl.GeolocateControl({
-    //     positionOptions: {
-    //         enableHighAccuracy: true,
-    //         zoom: 1
-    //     },
-    //     trackUserLocation: true,
-    // }));
 
     // Add geolocate control to the map and trigger it.
     const geolocate = new mapboxgl.GeolocateControl({
